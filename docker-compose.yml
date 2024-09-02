@@ -16,7 +16,7 @@ services:
 
   # reverse proxy container (nginx)
   nginx:
-    image: nginx:1.13
+    image: nginx:1.27
     ports:
       - 8000:80
     volumes:

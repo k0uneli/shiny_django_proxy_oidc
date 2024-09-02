@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:20.04
 
 RUN mkdir -p /opt/services/dev/src
 WORKDIR /opt/services/dev/src
