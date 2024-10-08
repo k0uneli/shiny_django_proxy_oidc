@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'i5^$9cgq(_rlq&*^)u+p=j@i97)^u3x4-=+t$ic4mwq$yfljri'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -48,8 +48,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'djangoapp',
-    'bootstrapform'
+    #'bootstrapform',
+    'mozilla_django_oidc'
 ]
+
+AUTHENTICATION_BACKENDS = ('mozilla_django_oidc.auth.OIDCAuthenticationBackend')
+
+#The SSO domain. Currently using auth0
+OKTA_DOMAIN = "dev-fy4ptem6qtab7qzo.us.auth0.com" #os.environ.get('AUTH0_DOMAIN')
+OIDC_RP_CLIENT_ID = "nrTJpK7odk6lplueEdwsOQ7RhCmWmJNl"  #os.environ.get('AUTH0_CLIENT_ID')
+OIDC_RP_CLIENT_SECRET = "k8VtVMVx_gHsZaFsubhh5jI2BvvJnE9GZOEeQO6dTPtrcs9An00qVo6QPRcljgxs"  #os.environ.get('AUTH0_CLIENT_SE>
+OIDC_RP_SIGN_ALGO = "RS256"
+OIDC_OP_AUTHORIZATION_ENDPOINT = f"https://{OKTA_DOMAIN}/authorize" # The OIDC authorization endpoint
+OIDC_OP_USER_ENDPOINT = f"https://{OKTA_DOMAIN}/userinfo" # The OIDC userinfo endpoint
+OIDC_OP_TOKEN_ENDPOINT = f"https://{OKTA_DOMAIN}/oauth/token" # The OIDC token endpoint
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

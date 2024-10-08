@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from mozilla_django_oidc import views as oidc_views
 from django.contrib.auth import views as auth_views
-
 from . import views
 
 urlpatterns = [
@@ -33,4 +33,6 @@ urlpatterns = [
     path('shiny/', views.shiny, name='shiny'),
     path('shiny_contents/', views.shiny_contents, name='shiny_contents'),
     path('shiny_auth/', views.auth, name='shiny_auth'),
+    path("auth/", oidc_views.OIDCAuthenticationRequestView.as_view(), name="oidc_authentication_init"),
+    path("auth0/callback/", oidc_views.OIDCAuthenticationCallbackView.as_view(), name="oidc_authentication_callback")
 ]
