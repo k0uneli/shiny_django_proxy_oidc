@@ -1,7 +1,7 @@
 # Docker example with NginX + Auth-Request module proxying to auth-acting Django server for Shiny app
-This is a [Docker][] setup for a [Django] application acting as an authentication
-and authorization server for a [Shiny] application, through the [NginX][]
-reverse-proxy and [auth-request][] module. This is an adapation of docker-nginx-auth-request-django-shiny-example but using mozilla-django-oidc instead of the default django auth, and also updated as the original codebase is over half a decade old and doesn't work anymore.
+This is a [Docker] setup for a [Django] application acting as an authentication
+and authorization server for a [Shiny] application, through the [NginX]
+reverse-proxy and [auth-request] module. This is an adapation of docker-nginx-auth-request-django-shiny-example but using mozilla-django-oidc instead of the default django auth, and also updated as the original codebase is over half a decade old and doesn't work anymore.
 
 - We use [NginX][] as reverse proxy.
 - We use mozilla-django-oidc to manage auth with SSO. Eventually the aim is to link it with AAF but right now it is used with auth0
